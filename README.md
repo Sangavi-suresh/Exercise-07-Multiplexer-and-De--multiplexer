@@ -47,42 +47,83 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+Step 1
+Create a project with required entities.
 
+Step 2
+Create a module along with respective file name for both Multiplexer and De-multiplexer.
 
+Step 3
+Run the module and get the respective RTL outputs.
+
+Step 4
+Create university program(VWF) for getting timing diagram.
+
+Step 5
+Give the respective inputs for timing diagram and obtain the results.
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Sangavi Suresh
+RegisterNumber: 212222230130
 */
+MULTIPLEXER:
 
+module multi (s0,s1,a0,a1,a2,a3,y);
+input s0,s1,a0,a1,a2,a3;
+output y;
+wire a,b,c,d,s0bar,s1bar;
+not (s0bar,s0);
+not (s1bar,s1);
+and (a,s0,s1,a3);
+and (b,s0bar,s1,a2);
+and (c,s0,s1bar,a1);
+and (d,s0bar,s1bar,a0);
+or (y,a,b,c,d);
+endmodule
 
+DEMULTIPLEXER:
 
-
-
+module demul(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire sbar,s1bar;
+nor(sbar,s0);
+nor(s1bar,s1);
+and(y0,i,sbar,s1);
+and(y1,i,sbar,s1bar);
+and(y2,i,s0,s1bar);
+and(y3,i,s0,s1);
+endmodule
 
 ### RTL LOGIC  
+MULTIPLEXER:
 
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/2c0d6809-854c-4909-9cfc-32544491c626)
 
-
-
-
-
-
+DEMULTIPLEXER:
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/a2b962b8-3056-4830-8b76-7f53a9200560)
 
 ### TIMING DIGRAMS  
+MULTIPLXER:
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/0f8804c1-781e-4bf1-a62b-e325cff5456c)
 
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/814280b7-b9be-4f5b-8490-290c525ef029)
 
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/e163498c-addb-4563-aa95-887f5f9559a2)
 
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/9ee105b3-cf1d-45a2-9620-718afac18c01)
 
+DE MULTIPLEXER:
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/658e17d3-dde1-42ff-8e50-50b70a877fef)
 
 ### TRUTH TABLE 
+MULTIPLEXER:
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/6f3787eb-adaa-4b79-af49-cce09125ee18)
 
-
-
-
-
+DE MULTIPLEXER:
+![image](https://github.com/Sangavi-suresh/Exercise-07-Multiplexer-and-De--multiplexer/assets/118541861/6ed7e185-1ec6-4e80-89f0-eb06a3053763)
 
 ### RESULTS 
+Hence the 4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
