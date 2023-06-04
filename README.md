@@ -69,7 +69,7 @@ Developed by: Sangavi Suresh
 RegisterNumber: 212222230130
 */
 MULTIPLEXER:
-
+```
 module multi (s0,s1,a0,a1,a2,a3,y);
 input s0,s1,a0,a1,a2,a3;
 output y;
@@ -82,9 +82,9 @@ and (c,s0,s1bar,a1);
 and (d,s0bar,s1bar,a0);
 or (y,a,b,c,d);
 endmodule
-
+```
 DEMULTIPLEXER:
-
+```
 module demul(y0,y1,y2,y3,s0,s1,i);
 input s0,s1,i;
 output y0,y1,y2,y3;
@@ -96,7 +96,7 @@ and(y1,i,sbar,s1bar);
 and(y2,i,s0,s1bar);
 and(y3,i,s0,s1);
 endmodule
-
+```
 ### RTL LOGIC  
 MULTIPLEXER:
 
